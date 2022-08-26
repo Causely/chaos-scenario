@@ -1,0 +1,17 @@
+kind: StressChaos
+apiVersion: chaos-mesh.org/v1alpha1
+metadata:
+  namespace: default
+  name: reviews-attack
+spec:
+  selector:
+    namespaces:
+      - default
+    labelSelectors:
+      app: reviews
+  mode: all
+  stressors:
+    memory:
+      workers: 4
+      size: 100%
+  duration: 100s
