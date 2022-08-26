@@ -18,5 +18,8 @@ API response time increased significantly or not available
 ![Screen Shot 2022-08-26 at 10 49 08 AM](https://user-images.githubusercontent.com/4391815/186933944-3a524f42-2161-4171-8412-78c351fa5dce.png)
 ![Screen Shot 2022-08-26 at 10 51 40 AM](https://user-images.githubusercontent.com/4391815/186933961-9548cfa0-947f-4ef5-8df5-4ab48ed1fe07.png)
 
+API Success rate drops
+![Screen Shot 2022-08-26 at 12 30 46 PM](https://user-images.githubusercontent.com/4391815/186951016-1a3b7920-0294-49d7-853c-e7b58239b9fc.png)
+
 ### Cleanup
 `kubectl delete -f oom-review-pods.yaml`
