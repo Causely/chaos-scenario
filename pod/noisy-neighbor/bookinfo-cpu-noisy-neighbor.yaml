@@ -1,0 +1,17 @@
+kind: StressChaos
+apiVersion: chaos-mesh.org/v1alpha1
+metadata:
+  namespace: default
+  name: review-v3-cpu-attack
+spec:
+  selector:
+    namespaces:
+      - default
+    labelSelectors:
+      version: v3
+  mode: all
+  stressors:
+    cpu:
+      workers: 10
+      load: 100
+  duration: 300s
