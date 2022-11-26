@@ -20,7 +20,7 @@ https://v1-docs.litmuschaos.io/docs/getstarted/
 
 Install generic experiments
 
-`kubectl apply -f https://hub.litmuschaos.io/api/chaos/1.13.8?file=charts/generic/experiments.yaml`
+`kubectl apply -f https://hub.litmuschaos.io/api/chaos/1.13.8?file=charts/generic/experiments.yaml -n litmus`
 
 Create the role binding for litmus experiments  
 

@@ -1,27 +1,36 @@
-# cpu load for the stress
 apiVersion: litmuschaos.io/v1alpha1
 kind: ChaosEngine
 metadata:
-  name: engine-cpu-chaos
+  name: cpu-chaos
+  namespace: litmus
 spec:
-  engineState: "active"
-  annotationCheck: "false"
+  annotationCheck: 'false'
+  engineState: 'active'
   appinfo:
-    appns: "bookinfo2"
-    applabel: "app=ratings"
-    appkind: "deployment"
-  chaosServiceAccount: pod-stress-sa
+    appns: 'bookinfo2'
+    applabel: 'app=ratings'
+    appkind: 'deployment'
+  chaosServiceAccount: litmus-admin
+  monitoring: false
+  # It can be delete/retain
+  jobCleanUpPolicy: 'delete'
   experiments:
-  - name: pod-cpu-hog
-    spec:
-      components:
-        env:
-        # cpu load in percentage for the stress
-        - name: CPU_LOAD
-          value: '100'
-        # cpu core should be provided as 0 for cpu load
-        # to work, otherwise it will take cpu core as priority
-        - name: CPU_CORES
-          value: '0'
-        - name: TOTAL_CHAOS_DURATION
-          value: '60'
+    - name: pod-cpu-hog
+      spec:
+        components:
+          env:
+            # Provide name of target container
+            # where chaos has to be injected
+            - name: TARGET_CONTAINER
+              value: 'ratings'
+            - name: CONTAINER_RUNTIME
+              value: 'containerd'
+            # path of the socket file
+            - name: SOCKET_PATH
+              value: '/var/run/containerd/containerd.sock'
+            #number of cpu cores to be consumed
+            #verify the resources the app has been launched with
+            - name: CPU_CORES
+              value: '1'
+            - name: TOTAL_CHAOS_DURATION
+              value: '6000' # in seconds

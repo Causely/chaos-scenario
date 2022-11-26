@@ -1,0 +1,26 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChaosEngine
+metadata:
+  name: engine-chaos-dashboard-iostress
+  namespace: litmus
+spec:
+  engineState: "active"
+  annotationCheck: "false"
+  appinfo:
+    appns: "bookinfo2"
+    applabel: "app=ratings"
+    appkind: "deployment"
+  chaosServiceAccount: litmus-admin
+  experiments:
+    - name: pod-io-stress
+      spec:
+        components:
+          env:
+          - name: CONTAINER_RUNTIME
+            value: 'containerd'
+          - name: SOCKET_PATH
+            value: '/run/containerd/containerd.sock'
+          - name: FILESYSTEM_UTILIZATION_PERCENTAGE
+            value: '10' #in GB
+          - name: TOTAL_CHAOS_DURATION
+            value: '600'
