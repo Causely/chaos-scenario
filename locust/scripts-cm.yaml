@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: scripts-cm
+data:
+  locustfile.py: |
+    import time
+    from locust import HttpUser, task
+
+    class QuickstartUser(HttpUser):
+        @task
+        def product_page(self):
+            self.client.get("/productpage")
+
+
