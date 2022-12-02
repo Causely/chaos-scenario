@@ -1,8 +1,8 @@
 # IO Noisy Neighbor 
-This experiment creates the scenario of container IO Stress. It will cause CPU IO Wait increase on the underlying node and potential IO Throttling on the neighbor pods.
+This scenario of container IO stress will cause CPU IO wait increase on the underlying node and potential IO throttling on the neighbor pods.
 
 ## Produce the defect
-Make sure you have installed the litmus per README.md in the root directory. And run the following to create a chaosEngine for generating IO stress on the ratings pod.
+Make sure you have installed the litmus per README.md in the root directory. Run the following to create a chaosEngine for generating IO stress on the ratings pod.
 
 `kubectl create -f io_stress.yaml`
 
