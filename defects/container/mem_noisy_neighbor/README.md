@@ -1,8 +1,8 @@
 # Memory Noisy Neighbor 
-This experiment creates the scenario of container memory hog. It will cause memory congestion on the underlying node and potential OOM kill on the neighbor pods.
+This scenario of container memory hog will cause memory congestion on the underlying node and potential OOM kill on the neighbor pods.
 
 ## Produce the defect
-Make sure you have installed the litmus per README.md in the root directory. And run the following to create a chaosEngine for generating memory stress on the ratings pod.
+Make sure you have installed the litmus per README.md in the root directory. Run the following to create a chaosEngine for generating memory stress on the ratings pod.
 
 `kubectl create -f memChaos.yaml`
 
