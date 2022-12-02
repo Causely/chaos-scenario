@@ -3,6 +3,13 @@ The test application we are using for chaos attack is the Bookinfo app, https://
 
 The chaos-scenario repo contains the scenarios where a chaos could happen, based on chaos-mesh or litmus.
 
+A list of defects example chaos are:
+1. [CPU Noisy Neighbor](https://github.com/Causely/chaos-scenario/tree/main/defects/container/cpu_noisy_neighbor)
+2. [CPU Starvation](https://github.com/Causely/chaos-scenario/tree/main/defects/container/cpu_starve)
+3. [CPU Throttling](https://github.com/Causely/chaos-scenario/tree/main/defects/container/cpu_throttling)
+4. [Memory Noisy Neighbor](https://github.com/Causely/chaos-scenario/tree/main/defects/container/mem_noisy_neighbor)
+5. [IO Noisy Neighbor](https://github.com/Causely/chaos-scenario/tree/main/defects/container/io_noisy_neighbor)
+
 ## chaos-mesh install
 Chaos-mesh can be installed via Helm, please make sure you specify the right container runtime during the install, see more details https://chaos-mesh.org/docs/production-installation-using-helm/#step-4-install-chaos-mesh-in-different-environments
 

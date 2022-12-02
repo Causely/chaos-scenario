@@ -1,0 +1,31 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChaosEngine
+metadata:
+  name: mem-chaos
+  namespace: litmus
+spec:
+  annotationCheck: 'false'
+  engineState: 'active'
+  appinfo:
+    appns: 'bookinfo2'
+    applabel: 'app=ratings'
+    appkind: 'deployment'
+  chaosServiceAccount: litmus-admin
+  monitoring: false
+  # It can be delete/retain
+  jobCleanUpPolicy: 'delete'
+  experiments:
+  - name: pod-memory-hog
+    spec:
+      components:
+        env:
+        # memory consumption value
+        - name: MEMORY_CONSUMPTION
+          value: '10000' #in MB
+        - name: TOTAL_CHAOS_DURATION
+          value: '600'
+        # container runtime, see https://docs.litmuschaos.io/docs/troubleshooting/
+        - name: CONTAINER_RUNTIME
+          value: 'containerd'
+        - name: SOCKET_PATH
+          value: '/var/run/containerd/containerd.sock'
