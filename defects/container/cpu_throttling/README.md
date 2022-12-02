@@ -1,5 +1,5 @@
 # CPU Throttling
-CPU Throttling is considered as the silent killer of Application response time. https://medium.com/omio-engineering/cpu-limits-and-aggressive-throttling-in-kubernetes-c5b20bd8a718.
+CPU Throttling is considered as the silent killer of application response time. https://medium.com/omio-engineering/cpu-limits-and-aggressive-throttling-in-kubernetes-c5b20bd8a718.
 
 ## Load generator
 We first leverage Locust to generate load against /productpage against bookinfo app. You can find locust installation instruction in the root README.md.
