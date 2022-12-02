@@ -1,9 +1,7 @@
 # CPU Starvation
-In K8s, The CPU request is implemented using cpu control group's cpu.shares. See https://mechpen.github.io/posts/2020-04-27-cfs-group/index.html and https://mechpen.github.io/posts/2020-07-25-k8s-cpu/index.html for more details.
+In K8s, the CPU request is implemented using cpu control group's cpu.shares. See https://mechpen.github.io/posts/2020-04-27-cfs-group/index.html and https://mechpen.github.io/posts/2020-07-25-k8s-cpu/index.html for more details.
 
-Container gets starved during CFS scheduling due to lack of cpu shares (lack of cpu requests in K8s).
-
-For this scenario, we will be using the similar set up we did in cpu_throttling experiment, but manipulating the cpu request of the productpage container.
+In this scenario, the container gets starved during CFS scheduling due to lack of cpu shares (lack of cpu requests in K8s).
 
 ## Load generator
 We first leverage Locust to generate load against /productpage against bookinfo app. You can find locust installation instruction in the root README.md.
